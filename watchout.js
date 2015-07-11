@@ -8,12 +8,21 @@ var highScore = 0;
 var currentScore = 0;
 var collisions = 0;
 
+var mousemove = function(){
+  var player = d3.select(".player");
+  var mouse = d3.mouse(this);
+  //mouse[0] is x, mouse[1] is y
+
+player.attr("cx", function(d) { return d.x = mouse[0];})
+      .attr("cy", function(d) { return d.y = mouse[1];})
+
+};
 
 var svg = d3.select("body").append("svg")
   // future idea - make canvas size responsive to size of browser window
   .attr("width", width)
-  .attr("height", height);
-
+  .attr("height", height)
+  .on("mousemove", mousemove );
 
 var dragmove = function(d) {
   d3.select(this)
@@ -33,8 +42,9 @@ var player = svg.selectAll(".player").data([{x: width/2, y: height/2}])
               .attr("cx", function(d) { return d.x; })
               .attr("cy", function(d) { return d.y; })
               .attr("class", "player")
-              .style("fill", "red")
-              .call(drag);
+              .style("fill", function(d) { return "hsl(" + (Math.random() * 360) + ",100%,50%)"; });
+              // .call(drag);
+
 
 var increaseScore = function() {
   currentScore++;
