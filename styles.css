@@ -2,4 +2,50 @@
 
 /* Note: an asteroid image is included in this repo.
 Feel free to use it if you like. */
+.player{
 
+}
+
+.enemy{
+}
+
+.rotate {
+  transform-origin: 15px 15px;
+  animation: rotate 1s infinite;
+}
+
+@keyframes rotate {
+  /*0% {
+    transform: rotateZ(0deg);
+  }*/
+  10% {
+    transform: rotateZ(36deg);
+  }
+  /*20% {
+    transform: rotateZ(72deg);
+  }
+  30% {
+    transform: rotateZ(108deg);
+  }
+  40% {
+    transform: rotateZ(144deg);
+  }*/
+  100% {
+    transform: rotateZ(720deg);
+  }
+  /*60% {
+    transform: rotateZ(216deg);
+  }
+  70% {
+    transform: rotateZ(252deg);
+  }
+  80% {
+    transform: rotateZ(288deg);
+  }
+  90% {
+    transform: rotateZ(324deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }*/
+}
